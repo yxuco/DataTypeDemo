@@ -13,9 +13,40 @@ It is tested with TIBCO BusinessEvents 5.2.0, but the framework may work with ea
  - [TIBCO BusinessEvents Stream Processing](https://edelivery.tibco.com/storefront/eval/tibco-businessevents-event-stream-processing/prod10353.html)
  
 ## Install and configure
- 
-Description of setting-up the sample will come here ...
 
+#### Clone the project from GitHub
+
+If Git has not been installed, please check the notes on [beutil](https://github.com/yxuco/beunit) to install and configure Git and Maven.
+
+At the root of your workspace, clone the project using the command
+
+    git clone https://github.com/yxuco/DataTypeDemo.git
+
+It should download the source code in the DataTypeDemo folder under your workspace.  
+
+#### Import project into BusinessEvents Studio
+
+Launch the TIBCO BusinessEvents Studio, and import and configure the BE project as follows.
+
+ - Pulldown **File** menu and select **Import...**
+ - In the **Import** dialog, select **Existing TIBCO BusinessEvents Studio Project**, then click **Next >** button.
+ - In the **Existing TIBCO BusinessEvents Project Import Wizard** dialog, Browse for **Existing project root directory**, select and Open the `DataTypeDemo` folder under your workspace.
+ - Confirm that `your-workspace/DataTypeDemo` is populated as the **Existing project root directory**, then click the **Finish** button.
+ - If the **BusinessEvents Studio Development** Perspective is not open, in **Package Explorer** or **Studio Explorer**, highlight the imported project **DataTypeDemo**, and pulldown **Window** menu to open the **BusinessEvents Studio Development Perspective**.
+ - In **Studio Explorer**, highlight the project root folder `DataTypeDemo`, pulldown **Project** menu and select **Clean...**.
+ - In **Studio Explorer**, right-click the project root folder and select the popup menu **Build Enterprise Archive...**.
+ - In **Building Enterprise Archive...** dialog, select a **File Location** for the EAR file, e.g., /tmp/DataTypeDemo.ear, then click the **OK** button.
+ - If you see a dialog "`The Enterprise Archive file was built correctly`", you are ready to start the BE engine.
+ - Start the BE engine by running the following command from where you generated the `DataTypeDemo.ear` file
+ 
+     ${BE_HOME}/bin/be-engine --propFile ${BE_HOME}/bin/be-engine.tra -u default -c ${WORKSPACE}/DataTypeDemo/Deployments/DataTypeDemo.cdd DataTypeDemo.ear
+     
+where `BE_HOME` is the folder of the BE installation, e.g., `/usr/local/tibco/be/5.2`, and `WORKSPACE` is the workspace folder where you cloned the DataTypeDemo project.
+
+#### Run JUnit tests
+
+While the BE engine is running, you can launch the JUnit tests in the BusinessEvents Studio as described in the [beunit](https://github.com/yxuco/beunit) project.  Change to the Java Perspective when you run the JUnit tests.  Congratulations if you see a Green bar in the JUnit test panel, indicating success of all 5 test cases.  Please email or open issues if there is any problem with this project.  More details about the design and use of the test framework will be posted on the [project wiki](https://github.com/yxuco/DataTypeDemo/wiki).
+ 
 ## The author
 
 Yueming is a Sr. Architect working at [TIBCO](http://www.tibco.com/) Architecture Service Group.

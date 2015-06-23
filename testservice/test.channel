@@ -1,27 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<channel:Channel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:channel="http:///com/tibco/cep/designtime/core/model/service/channel" xmlns:designtime="http:///com/tibco/cep/designtime/core/model/designtime_ontology.ecore" namespace="/testservice/" folder="/testservice/" name="test" description="" GUID="58B87EEB-6539-F152-D238-BF18BE449F0F" ownerProjectName="DataTypeDemo">
-  <driver xsi:type="channel:HttpChannelDriverConfig" configMethod="REFERENCE" reference="/testservice/SharedResources/HTTPTestListner.sharedhttp" label="HTTP" channel="/">
-    <destinations folder="/Test/Channels/HTTPChannel/" name="function" description="" GUID="10BE61FF-AF4E-2691-EB42-7A2D16B41072" ownerProjectName="DataTypeDemo" eventURI="/testservice/Events/TestRequest" serializerDeserializerClass="com.tibco.cep.driver.http.serializer.RESTMessageSerializer" driverConfig="//@driver">
+<?xml version="1.0" encoding="UTF-8"?><channel:Channel xmlns:channel="http:///com/tibco/cep/designtime/core/model/service/channel" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:designtime="http:///com/tibco/cep/designtime/core/model/designtime_ontology.ecore" xmi:version="2.0" namespace="/testservice/" folder="/testservice/" name="test" description="" GUID="58B87EEB-6539-F152-D238-BF18BE449F0F" ownerProjectName="DataTypeDemo">
+  <driver configMethod="REFERENCE" reference="/testservice/SharedResources/HTTPTestListner.sharedhttp" label="HTTP" channel="/" xmlns:xsi="http://www.w3.org/2001/XMLSchema" xsi:type="channel:HttpChannelDriverConfig">
+    <destinations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" folder="/Test/Channels/HTTPChannel/" name="function" description="" GUID="10BE61FF-AF4E-2691-EB42-7A2D16B41072" ownerProjectName="DataTypeDemo" eventURI="/testservice/Events/TestRequest" serializerDeserializerClass="com.tibco.cep.driver.http.serializer.RESTMessageSerializer" driverConfig="//@driver">
       <properties>
         <properties xsi:type="designtime:SimpleProperty" name="be.http.IncludeEventType" value="ALWAYS"/>
         <properties xsi:type="designtime:SimpleProperty" name="be.http.PageFlow" value="false"/>
         <properties xsi:type="designtime:SimpleProperty" name="be.http.contextPath" value=""/>
         <properties xsi:type="designtime:SimpleProperty" name="be.http.pageFlowFunction" value=""/>
+        <properties xsi:type="designtime:SimpleProperty" name="be.http.IncludeEventType" value="ALWAYS"/>
       </properties>
     </destinations>
-    <destinations folder="/testservice/test/" name="query" description="" GUID="FADE45BE-ED49-6B6A-AA8C-F9F18D58F418" ownerProjectName="DataTypeDemo" eventURI="/testservice/Events/QueryRequest" serializerDeserializerClass="com.tibco.cep.driver.http.serializer.RESTMessageSerializer" driverConfig="//@driver">
+    <destinations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" folder="/testservice/test/" name="query" description="" GUID="FADE45BE-ED49-6B6A-AA8C-F9F18D58F418" ownerProjectName="DataTypeDemo" eventURI="/testservice/Events/QueryRequest" serializerDeserializerClass="com.tibco.cep.driver.http.serializer.RESTMessageSerializer" driverConfig="//@driver">
       <properties>
         <properties xsi:type="designtime:SimpleProperty" name="be.http.IncludeEventType" value="ALWAYS"/>
         <properties xsi:type="designtime:SimpleProperty" name="be.http.PageFlow" value="false"/>
         <properties xsi:type="designtime:SimpleProperty" name="be.http.contextPath" value=""/>
         <properties xsi:type="designtime:SimpleProperty" name="be.http.pageFlowFunction" value=""/>
+        <properties xsi:type="designtime:SimpleProperty" name="be.http.IncludeEventType" value="ALWAYS"/>
       </properties>
     </destinations>
-    <extendedConfiguration>
+    <extendedConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <properties name="serverType" value="TOMCAT"/>
     </extendedConfiguration>
-    <driverType xsi:type="channel:DriverTypeInfo" driverTypeName="HTTP"/>
-    <choice value="TOMCAT">
+    <driverType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="channel:DriverTypeInfo" driverTypeName="HTTP"/>
+    <choice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="TOMCAT">
       <extendedConfiguration>
         <properties name="be.http.connectorType" value="NIO"/>
         <properties name="be.http.connectorInstances" value="1"/>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <cluster xmlns="http://tibco.com/businessevents/configuration/5.2">
     <revision>
-        <version>53</version>
+        <version>54</version>
         <author>yxu</author>
-        <date>2015/06/22 23:13:18</date>
+        <date>2015/06/23 15:00:07</date>
         <comment/>
     </revision>
     <name>DataTypeDemo</name>

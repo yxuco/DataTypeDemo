@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<event:SimpleEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:event="http:///com/tibco/cep/designtime/core/model/event" namespace="/Events/" folder="/Events/" name="PrimitiveEvent" description="simple event with primitive properties" GUID="1451ECE9-0B78-71FD-CC98-1935AF632F6D" ownerProjectName="DataTypeDemo" superEventPath="" ttlUnits="Seconds">
+<?xml version="1.0" encoding="UTF-8"?><event:SimpleEvent xmlns:event="http:///com/tibco/cep/designtime/core/model/event" xmlns:xmi="http://www.omg.org/XMI" xmi:version="2.0" namespace="/Events/" folder="/Events/" name="PrimitiveEvent" description="simple event with primitive properties" GUID="1451ECE9-0B78-71FD-CC98-1935AF632F6D" ownerProjectName="DataTypeDemo" superEventPath="" ttlUnits="Seconds">
   <properties name="aString" ownerProjectName="DataTypeDemo" ownerPath="/Events/PrimitiveEvent"/>
   <properties name="aBoolean" ownerProjectName="DataTypeDemo" type="boolean" ownerPath="/Events/PrimitiveEvent"/>
   <properties name="anInt" ownerProjectName="DataTypeDemo" type="int" ownerPath="/Events/PrimitiveEvent"/>

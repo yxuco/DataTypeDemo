@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<element:Concept xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:element="http:///com/tibco/cep/designtime/core/model/element" namespace="/Concepts/" folder="/Concepts/" name="SingleItems" description="property of concept references" GUID="08B33481-662F-3D0B-E4DD-E88AC6C13AA2" ownerProjectName="DataTypeDemo" superConceptPath="" autoStartStateMachine="true">
+<?xml version="1.0" encoding="UTF-8"?><element:Concept xmlns:element="http:///com/tibco/cep/designtime/core/model/element" xmlns:xmi="http://www.omg.org/XMI" xmi:version="2.0" namespace="/Concepts/" folder="/Concepts/" name="SingleItems" description="property of concept references" GUID="08B33481-662F-3D0B-E4DD-E88AC6C13AA2" ownerProjectName="DataTypeDemo" superConceptPath="" autoStartStateMachine="true">
   <extendedProperties/>
   <properties name="primitiveArrayRef" ownerProjectName="DataTypeDemo" type="ConceptReference" conceptTypePath="/Concepts/PrimitiveArrayItem" ownerPath="/Concepts/SingleItems"/>
   <properties name="primitiveRef" ownerProjectName="DataTypeDemo" type="ConceptReference" conceptTypePath="/Concepts/PrimitiveItem" ownerPath="/Concepts/SingleItems"/>
