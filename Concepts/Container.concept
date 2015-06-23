@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element:Concept xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:element="http:///com/tibco/cep/designtime/core/model/element" namespace="/Concepts/" folder="/Concepts/" name="Container" description="property of contained concept or array of contained concepts" GUID="6379C885-00B8-0620-0E36-676A39AA84C4" ownerProjectName="DataTypeDemo" superConceptPath="" autoStartStateMachine="true">
+  <extendedProperties/>
+  <properties name="arrayContained" ownerProjectName="DataTypeDemo" type="ContainedConcept" conceptTypePath="/Concepts/SingleItems" array="true" ownerPath="/Concepts/Container"/>
+  <properties name="containedArray" ownerProjectName="DataTypeDemo" type="ContainedConcept" conceptTypePath="/Concepts/ListItems" ownerPath="/Concepts/Container"/>
+</element:Concept>

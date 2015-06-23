@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channel:Channel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:channel="http:///com/tibco/cep/designtime/core/model/service/channel" xmlns:designtime="http:///com/tibco/cep/designtime/core/model/designtime_ontology.ecore" namespace="/testservice/TestScheduler/" folder="/testservice/TestScheduler/" name="TestTriggerChannel" description="" GUID="9CAB7332-FEA5-E4DE-EE95-2FFA222B78DE" ownerProjectName="DataTypeDemo">
+  <driver configMethod="REFERENCE" label="LOCAL" channel="/">
+    <destinations folder="/UnitTest/RuleTest/ScheduleRuleTest/TestTriggerChannel/" name="PreprocTestTrigger" description="" GUID="D404508D-E3AF-AAED-5D89-5CE14C8B62D0" ownerProjectName="DataTypeDemo" driverConfig="//@driver">
+      <properties>
+        <properties xsi:type="designtime:SimpleProperty" name="Size" value="0"/>
+        <properties xsi:type="designtime:SimpleProperty" name="TimeOut" value="-1"/>
+      </properties>
+    </destinations>
+    <driverType xsi:type="channel:DriverTypeInfo" driverTypeName="Local"/>
+  </driver>
+</channel:Channel>

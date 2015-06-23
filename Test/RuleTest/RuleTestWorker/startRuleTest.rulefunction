@@ -1,0 +1,23 @@
+/**
+ * @description Use a worker to start a test in rule context immediately after engine startup.
+ *              This is an alternative way to test rules that cannot run during engine startup.
+ * @author Yueming Xu
+ */
+void rulefunction Test.RuleTest.RuleTestWorker.startRuleTest {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		
+	}
+	body {
+		Object logger = Log.getLogger("Test.RuleTest.DelayedRuleTestDriver.startRuleTest");
+		Log.log(logger, "info", "start background work manager for rule tests");
+		
+		String worker = "RuleTestWorker";
+		Cluster.createWorkManager(worker, 1);
+		
+		// pass dependent object Id to the worker, so it can load it from cache
+		Cluster.executeRuleFunction(worker, "/Test/RuleTest/RuleTestWorker/ruleTestAction", false);
+	}
+}

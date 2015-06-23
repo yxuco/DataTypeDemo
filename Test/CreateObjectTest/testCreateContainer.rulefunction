@@ -1,0 +1,59 @@
+/**
+ * @description Test the function createContainer, verify all levels of contained and referenced object relationships.
+ *              return "true" if sucessful, or an error message if failed.
+ * @author Yueming Xu
+ */
+String rulefunction Test.CreateObjectTest.testCreateContainer {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		
+	}
+	body {
+		Object logger = Log.getLogger("Test.CreateObjectTest.testCreateContainer");
+		Log.log(logger, "info", "Start test RuleFunctions.CreateObject.createContainer");
+		
+		String msg = "Failed to create Container";
+		Concepts.PrimitiveItem pItem = RuleFunctions.CreateObject.createPrimitiveItem(
+			"first" /*aString String */,
+			true /*aBoolean boolean */,
+			1 /*anInt int */,
+			1 /*aLong long */,
+			1.0 /*aDouble double */,
+			DateTime.now() /*aDateTime DateTime */);
+		Concepts.PrimitiveArrayItem paItem = RuleFunctions.CreateObject.createPrimitiveArrayItem(
+			"first" /*aString String */,
+			true /*aBoolean boolean */,
+			1 /*anInt int */,
+			1 /*aLong long */,
+			1.0 /*aDouble double */,
+			DateTime.now() /*aDateTime DateTime */);
+		Concepts.SingleItems sItem = RuleFunctions.CreateObject.createSingleItems(
+			paItem /*aPrimitiveArrayItem Concepts.PrimitiveArrayItem */,
+			pItem /*aPrimitiveItem Concepts.PrimitiveItem */);
+		Concepts.ListItems lItem = RuleFunctions.CreateObject.createListItems(
+			paItem /*aPrimitiveArrayItem Concepts.PrimitiveArrayItem */,
+			pItem /*aPrimitiveItem Concepts.PrimitiveItem */);
+		Concepts.Container con = RuleFunctions.CreateObject.createContainer(
+			sItem /*aSingleItems Concepts.SingleItems */,
+			lItem /*aListItems Concepts.ListItems */);
+		
+		if (Instance.PropertyArray.toArrayConcept(con.arrayContained)[0] != sItem) {
+			msg = "Container is not correctly set on array of contained concepts"; 
+		} else if (con.containedArray != lItem) {
+			msg = "Container is not correctly set on contained concept";
+		} else if (sItem.primitiveArrayRef != paItem) {
+			msg = "SingleItem is not correctly set on concept reference";
+		} else if (Instance.PropertyArray.toArrayConcept(lItem.primitiveRefs)[0] != pItem) {
+			msg = "ListItem is not correctly set on array of concept reference";
+		} else if (Instance.PropertyArray.toArrayString(paItem.strings)[0] != "first") {
+			msg = "PrimitiveArrayItem is not correctly set on array of string";
+		} else {
+			msg = "true";
+		}
+		Log.log(logger, "info", "End test RuleFunctions.CreateObject.createContainer: %s", msg);
+
+		return msg;
+	}
+}

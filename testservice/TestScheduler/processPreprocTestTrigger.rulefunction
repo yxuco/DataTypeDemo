@@ -1,0 +1,18 @@
+/**
+ * @description invoke specified test function in preprocessor context.
+ *              Configure it as the preprocessor for the PreprocTestTrigger event
+ * @author Yueming Xu
+ */
+void rulefunction testservice.TestScheduler.processPreprocTestTrigger {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		testservice.TestScheduler.PreprocTestTrigger trigger;
+	}
+	body {
+		Object logger = Log.getLogger("testservice.TestScheduler.processPreprocTestTrigger");
+		Log.log(logger, "info", "Invoking function %s", trigger.functionName);
+		Engine.invokeRuleFunction(trigger.functionName, null);
+	}
+}

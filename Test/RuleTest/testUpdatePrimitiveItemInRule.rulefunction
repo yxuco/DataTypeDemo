@@ -1,0 +1,79 @@
+/**
+ * @description Trigger the UpdatePrimitiveItem rule, and verify that a concept is updated by an event.
+ *              return "true" if sucessful, or an error message if failed.
+ *        Note: this test must be executed in a rule, and thus it updates an existing concept from cache.
+ *              It assumes that the concept is already created by the preproc test for the same rule.
+ *              This test is an isolated rule test because it invokes only a single rule.
+ * @author Yueming Xu
+ */
+String rulefunction Test.RuleTest.testUpdatePrimitiveItemInRule {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		
+	}
+	body {
+		Object logger = Log.getLogger("Test.RuleTest.testUpdatePrimitiveItemInRule");
+		Log.log(logger, "info", "Start test Rules.UpdatePrimitiveItem");
+		
+		// For cache-only OM, reload object into working memory for new rule session
+		// Note: newly created object here cannot be matched by invokeRule() below,
+		//       so, the matching object must have been created during test setup.
+		String extId = "PI:UpdatePrimitiveItemRule";
+		Concepts.PrimitiveItem pItem = Cluster.DataGrid.CacheLoadConceptByExtId(extId, true);
+
+		// create event to trigger the rule
+		Events.PrimitiveEvent evt = Events.PrimitiveEvent.PrimitiveEvent(
+			null /*extId String */,
+			null /*payload String */,
+			"UpdatePrimitiveItemRule" /*aString String */,
+			false /*aBoolean boolean */,
+			20 /*anInt int */,
+			20L /*aLong long */,
+			20.0 /*aDouble double */,
+			DateTime.now() /*aDateTime DateTime */);
+		
+		// test one rule in isolation.  Note that this function has limitations.
+		// -- it accepts only one argument, which must be the first scope variable of the rule.
+		// -- this call will execute the rule action, and return array of matching scope tuples.
+		Object[] result = Engine.invokeRule(
+			"/Rules/UpdatePrimitiveItem",
+			Object[]{evt},
+			true /*enable dirty read */);
+			
+		// verify the returned results
+		String msg = "Rules.UpdatePrimitiveItem did not fire";  // default failure message
+		Log.log(logger, "info", "Rule returned %d matching tuples", result@length);
+		for (int i = 0; i < result@length; i++) {
+			Object[] objs = result[i];
+			Log.log(logger, "info", "The %d-th rule match contains %d objects", i, objs@length);
+			if (null == objs) {
+				msg = String.format("The %d-th rule match contains no objects, expected 2 objects", i);
+			}
+			else if (objs@length != 2) {
+				msg = String.format("The %d-th rule match contains %d objects, expected 2 objects", i, objs@length);
+			}
+			else {
+				if (objs[1] instanceof Concepts.PrimitiveItem) {
+					Concepts.PrimitiveItem uItem = objs[1];
+					String fmt = "{%s, %s, %d, %d, %.1f, %tc}";
+					String itemStr = String.format(fmt, uItem.aString, uItem.aBoolean, uItem.anInt, uItem.aLong, uItem.aDouble, uItem.aDateTime);
+					String evtStr = String.format(fmt, evt.aString, evt.aBoolean, evt.anInt, evt.aLong, evt.aDouble, evt.aDateTime);
+					if (evtStr == itemStr) {
+						msg = "true";
+					}
+					else {
+						msg = String.format("The %d-th matched object %s is not as expected %s", i, itemStr, evtStr);
+					}
+				}
+				else {
+					msg = String.format("The 2nd object in the %d-th rule match is not a Concepts.PrimitiveItem", i);
+				}
+			}
+		}
+		Log.log(logger, "info", "End test Rules.UpdatePrimitiveItem: %s", msg);
+		
+		return msg;
+	}
+}

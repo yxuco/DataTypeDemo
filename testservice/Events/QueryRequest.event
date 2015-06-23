@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event:SimpleEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:event="http:///com/tibco/cep/designtime/core/model/event" namespace="/testservice/Events/" folder="/testservice/Events/" name="QueryRequest" description="Client can use this event to send HTTP GET request, and query data from cache." GUID="14E413BD-5EDF-7697-C363-BA0FB8269110" ownerProjectName="DataTypeDemo" superEventPath="" ttlUnits="Seconds" channelURI="/testservice/test" destinationName="query">
+  <properties name="statement" ownerProjectName="DataTypeDemo" ownerPath="/testservice/Events/QueryRequest"/>
+  <namespaceEntries prefix="xsd" namespace="http://www.w3.org/2001/XMLSchema"/>
+  <expiryAction folder="/testservice/Events/QueryRequest" name="TestPostRequest_expiryAction" ownerProjectName="DataTypeDemo" actionText="" conditionText="">
+    <symbols>
+      <symbolList idName="testpostrequest" type="/testservice/Events/QueryRequest"/>
+    </symbols>
+  </expiryAction>
+</event:SimpleEvent>

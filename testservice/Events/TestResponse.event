@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event:SimpleEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:event="http:///com/tibco/cep/designtime/core/model/event" namespace="/testservice/Events/" folder="/testservice/Events/" name="TestResponse" description="String response data is returned as payload of this event.  The payload can be &quot;true&quot; or error message for test request, or resultset in JSON for query request." GUID="DC88DBFF-D811-42DC-5540-60565DBCE8FC" ownerProjectName="DataTypeDemo" superEventPath="" ttlUnits="Seconds">
+  <expiryAction folder="/testservice/Events/TestResponse" name="TestResponse_expiryAction" ownerProjectName="DataTypeDemo" actionText="" conditionText="">
+    <symbols>
+      <symbolList idName="testresponse" type="/testservice/Events/TestResponse"/>
+    </symbols>
+  </expiryAction>
+</event:SimpleEvent>

@@ -1,0 +1,50 @@
+/**
+ * @description Test the function addDataToPrimitiveArray, verify updated properties.
+ *              return "true" if sucessful, or an error message if failed.
+ *        Note: In preprocessor context, it is not allowed to update existing concepts from other rule session.
+ *              However, in this test case, all objects are newly created by the function,
+ *              So, this test should work in either preprocessor, or rule context.
+ * @author Yueming Xu
+ */
+String rulefunction Test.UpdateObjectTest.testAddDataToPrimitiveArray {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		
+	}
+	body {
+		Object logger = Log.getLogger("Test.UpdateObjectTest.testAddDataToPrimitiveArray");
+		Log.log(logger, "info", "Start test RuleFunctions.UpdateObject.addDataToPrimitiveArray");
+
+		String msg = "Failed to add data to Primitive Array";
+		Concepts.PrimitiveArrayItem paItem = RuleFunctions.CreateObject.createPrimitiveArrayItem(
+			"first" /*aString String */,
+			true /*aBoolean boolean */,
+			1 /*anInt int */,
+			1 /*aLong long */,
+			1.0 /*aDouble double */,
+			DateTime.now() /*aDateTime DateTime */);
+		RuleFunctions.UpdateObject.addDataToPrimitiveArray(
+			paItem /*aPrimitiveArray Concepts.PrimitiveArrayItem */,
+			"second" /*aString String */,
+			true /*aBoolean boolean */,
+			2 /*anInt int */,
+			2L /*aLong long */,
+			2.0 /*aDouble double */,
+			DateTime.now() /*aDateTime DateTime */);
+			
+		if (Instance.PropertyArray.toArrayString(paItem.strings)@length < 2) {
+			msg = String.format("String property length %d does not match the expected value of 2",
+				Instance.PropertyArray.toArrayString(paItem.strings)@length);
+		} else if (Instance.PropertyArray.toArrayLong(paItem.longs)[1] != 2L) {
+			msg = String.format("The 2nd item of long property %d does not match the expected value of 2L",
+				Instance.PropertyArray.toArrayLong(paItem.longs)[1]);
+		} else {
+			msg = "true";
+		}
+		Log.log(logger, "info", "End test RuleFunctions.UpdateObject.addDataToPrimitiveArray: %s", msg);
+		
+		return msg;
+	}
+}
