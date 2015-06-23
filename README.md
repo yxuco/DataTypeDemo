@@ -1,0 +1,1 @@
+This is a sample project of [TIBCO BusinessEvents](https://docs.tibco.com/products/tibco-businessevents-5-2-0)
