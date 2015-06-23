@@ -35,13 +35,15 @@ Launch the TIBCO BusinessEvents Studio, import and configure the BE project as f
  - If the **BusinessEvents Studio Development** perspective is not open, in **Package Explorer** or **Studio Explorer**, highlight the root of the imported project `DataTypeDemo`, and pulldown **Window** menu to open the **BusinessEvents Studio Development Perspective**.
  - In **Studio Explorer**, highlight the project root folder `DataTypeDemo`, pulldown **Project** menu and select **Clean...**.
  - In **Studio Explorer**, right-click the project root folder and select the popup menu **Build Enterprise Archive...**.
- - In **Building Enterprise Archive...** dialog, select a **File Location** for the EAR file, e.g., /tmp/DataTypeDemo.ear, then click the **OK** button.
+ - In **Building Enterprise Archive...** dialog, select a **File Location** for the EAR file, e.g., `/tmp/DataTypeDemo.ear`, then click the **OK** button.
  - If you see a dialog "`The Enterprise Archive file was built correctly`", you are ready to start the BE engine.
  - Start the BE engine by running the following command from where you generated the `DataTypeDemo.ear` file
- 
-    ${BE_HOME}/bin/be-engine --propFile ${BE_HOME}/bin/be-engine.tra -u default -c ${WORKSPACE}/DataTypeDemo/Deployments/DataTypeDemo.cdd DataTypeDemo.ear
-     
-where `BE_HOME` is the folder of the BE installation, e.g., `/usr/local/tibco/be/5.2`, and `WORKSPACE` is the workspace folder where you cloned the DataTypeDemo project.
+
+```
+${BE_HOME}/bin/be-engine --propFile ${BE_HOME}/bin/be-engine.tra -u default -c ${WORKSPACE}/DataTypeDemo/Deployments/DataTypeDemo.cdd DataTypeDemo.ear
+```
+
+where `BE_HOME` is the root folder of the BE product installation, e.g., `/usr/local/tibco/be/5.2`, and `WORKSPACE` is the workspace folder where you cloned the `DataTypeDemo` project.
 
 #### Execute JUnit tests in BusinessEvents Studio
 
