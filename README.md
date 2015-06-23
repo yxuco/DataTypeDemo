@@ -40,7 +40,8 @@ Launch the TIBCO BusinessEvents Studio, import and configure the BE project as f
  - Start the BE engine by running the following command from where you generated the `DataTypeDemo.ear` file
 
 ```
-${BE_HOME}/bin/be-engine --propFile ${BE_HOME}/bin/be-engine.tra -u default -c ${WORKSPACE}/DataTypeDemo/Deployments/DataTypeDemo.cdd DataTypeDemo.ear
+${BE_HOME}/bin/be-engine --propFile ${BE_HOME}/bin/be-engine.tra -u default \
+-c ${WORKSPACE}/DataTypeDemo/Deployments/DataTypeDemo.cdd DataTypeDemo.ear
 ```
 
 where `BE_HOME` is the root folder of the BE product installation, e.g., `/usr/local/tibco/be/5.2`, and `WORKSPACE` is the workspace folder where you cloned the `DataTypeDemo` project.
