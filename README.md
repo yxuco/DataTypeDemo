@@ -31,7 +31,7 @@ Launch the TIBCO BusinessEvents Studio, import and configure the BE project as f
  - Pulldown **File** menu and select **Import...**
  - In the **Import** dialog, select **Existing TIBCO BusinessEvents Studio Project**, then click **Next >** button.
  - In the **Existing TIBCO BusinessEvents Project Import Wizard** dialog, browse for **Existing project root directory**, select and open the `DataTypeDemo` folder under your workspace.
- - Confirm that `your-workspace/DataTypeDemo` is populated as the **Existing project root directory**, then click the **Finish** button.
+ - Confirm that `your-workspace/DataTypeDemo` is populated as the **Existing project root directory**, uncheck `Copy project info workspace`, then click the **Finish** button.
  - If the **BusinessEvents Studio Development** perspective is not open, in **Package Explorer** or **Studio Explorer**, highlight the root of the imported project `DataTypeDemo`, and pulldown **Window** menu to open the **BusinessEvents Studio Development Perspective**.
  - In **Studio Explorer**, highlight the project root folder `DataTypeDemo`, pulldown **Project** menu and select **Clean...**.
  - In **Studio Explorer**, right-click the project root folder and select the popup menu **Build Enterprise Archive...**.
