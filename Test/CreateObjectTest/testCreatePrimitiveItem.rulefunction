@@ -3,7 +3,7 @@
  *              return "true" if sucessful, or an error message if failed.
  * @author Yueming Xu
  */
-String rulefunction Test.CreateObjectTest.testCreatePrimitiveItem {
+void rulefunction Test.CreateObjectTest.testCreatePrimitiveItem {
 	attribute {
 		validity = ACTION;
 	}
@@ -31,22 +31,16 @@ String rulefunction Test.CreateObjectTest.testCreatePrimitiveItem {
 			aLong /*aLong long */,
 			aDouble /*aDouble double */,
 			aDateTime /*aDateTime DateTime */);
-		
-		if (pItem != null) {
-			if (aString == pItem.aString &&
-				aBoolean == pItem.aBoolean &&
-				anInt == pItem.anInt &&
-				aLong == pItem.aLong &&
-				aDouble == pItem.aDouble &&
-				aDateTime == pItem.aDateTime) {
-				msg = "true";
-			}
-			else {
-				msg = "Returned PrimitiveItem does not match the expected input data";
-			}
-		}
-		Log.log(logger, "info", "End test RuleFunctions.CreateObject.createPrimitiveItem: %s", msg);
 
-		return msg;
+		assertThat("PrimitiveItem should not be null", pItem, notNullValue());
+		assertTrue("Returned PrimitiveItem does not match the expected input data",
+			aString == pItem.aString &&
+			aBoolean == pItem.aBoolean &&
+			anInt == pItem.anInt &&
+			aLong == pItem.aLong &&
+			aDouble == pItem.aDouble &&
+			aDateTime == pItem.aDateTime);
+
+		Log.log(logger, "info", "Completed test RuleFunctions.CreateObject.createPrimitiveItem");
 	}
 }

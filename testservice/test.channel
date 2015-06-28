@@ -8,6 +8,7 @@
         <properties xsi:type="designtime:SimpleProperty" name="be.http.pageFlowFunction" value=""/>
         <properties xsi:type="designtime:SimpleProperty" name="be.http.IncludeEventType" value="ALWAYS"/>
         <properties xsi:type="designtime:SimpleProperty" name="be.http.IncludeEventType" value="ALWAYS"/>
+        <properties xsi:type="designtime:SimpleProperty" name="be.http.IncludeEventType" value="ALWAYS"/>
       </properties>
     </destinations>
     <destinations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" folder="/testservice/test/" name="query" description="" GUID="FADE45BE-ED49-6B6A-AA8C-F9F18D58F418" ownerProjectName="DataTypeDemo" eventURI="/testservice/Events/QueryRequest" serializerDeserializerClass="com.tibco.cep.driver.http.serializer.RESTMessageSerializer" driverConfig="//@driver">
@@ -16,6 +17,7 @@
         <properties xsi:type="designtime:SimpleProperty" name="be.http.PageFlow" value="false"/>
         <properties xsi:type="designtime:SimpleProperty" name="be.http.contextPath" value=""/>
         <properties xsi:type="designtime:SimpleProperty" name="be.http.pageFlowFunction" value=""/>
+        <properties xsi:type="designtime:SimpleProperty" name="be.http.IncludeEventType" value="ALWAYS"/>
         <properties xsi:type="designtime:SimpleProperty" name="be.http.IncludeEventType" value="ALWAYS"/>
         <properties xsi:type="designtime:SimpleProperty" name="be.http.IncludeEventType" value="ALWAYS"/>
       </properties>

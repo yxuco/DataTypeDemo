@@ -3,7 +3,7 @@
  *              This function will be called for all tests in this folder.
  * @author Yueming Xu
  */
-String rulefunction Test.RuleTest.setupUpdatePrimitiveItem {
+void rulefunction Test.RuleTest.setupUpdatePrimitiveItem {
 	attribute {
 		validity = ACTION;
 	}
@@ -30,6 +30,5 @@ String rulefunction Test.RuleTest.setupUpdatePrimitiveItem {
 				DateTime.now() /*aDateTime DateTime */);
 		}
 		Log.log(logger, "info", "Setup concept %s", pItem@extId);
-		return "true";
 	}
 }

@@ -7,7 +7,7 @@
  *              This test uses catelog functions that runs ONLY in preprocessor context.
  * @author Yueming Xu
  */
-String rulefunction Test.RuleTest.testUpdatePrimitiveItemInPreproc {
+void rulefunction Test.RuleTest.testUpdatePrimitiveItemInPreproc {
 	attribute {
 		validity = ACTION;
 	}
@@ -47,14 +47,10 @@ String rulefunction Test.RuleTest.testUpdatePrimitiveItemInPreproc {
 		String fmt = "{%s, %s, %d, %d, %.1f, %tc}";
 		String itemStr = String.format(fmt, pItem.aString, pItem.aBoolean, pItem.anInt, pItem.aLong, pItem.aDouble, pItem.aDateTime);
 		String evtStr = String.format(fmt, evt.aString, evt.aBoolean, evt.anInt, evt.aLong, evt.aDouble, evt.aDateTime);
-		if (evtStr == itemStr) {
-			msg = "true";
-		}
-		else {
-			msg = String.format("Resulting concept %s is not as expected %s", itemStr, evtStr);
-		}
-		Log.log(logger, "info", "End test Rules.UpdatePrimitiveItem: %s", msg);
-		
-		return msg;
+
+		assertThat(String.format("Concept %s is not updated as expected %s", itemStr, evtStr),
+			itemStr, equalTo(evtStr));
+
+		Log.log(logger, "info", "Completed test Rules.UpdatePrimitiveItem");
 	}
 }
