@@ -48,7 +48,7 @@ void rulefunction Test.RuleTest.testUpdatePrimitiveItemInPreproc {
 		String itemStr = String.format(fmt, pItem.aString, pItem.aBoolean, pItem.anInt, pItem.aLong, pItem.aDouble, pItem.aDateTime);
 		String evtStr = String.format(fmt, evt.aString, evt.aBoolean, evt.anInt, evt.aLong, evt.aDouble, evt.aDateTime);
 
-		assertThat(String.format("Concept %s is not updated as expected %s", itemStr, evtStr),
+		assertThat(String.format("Concept %s must be updated to expected value %s", itemStr, evtStr),
 			itemStr, equalTo(evtStr));
 
 		Log.log(logger, "info", "Completed test Rules.UpdatePrimitiveItem");

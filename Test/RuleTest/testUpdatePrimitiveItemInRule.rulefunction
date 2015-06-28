@@ -6,7 +6,7 @@
  *              This test is an isolated rule test because it invokes only a single rule.
  * @author Yueming Xu
  */
-String rulefunction Test.RuleTest.testUpdatePrimitiveItemInRule {
+void rulefunction Test.RuleTest.testUpdatePrimitiveItemInRule {
 	attribute {
 		validity = ACTION;
 	}
@@ -14,8 +14,6 @@ String rulefunction Test.RuleTest.testUpdatePrimitiveItemInRule {
 		
 	}
 	body {
-		//TODO: this must be re-implement using Matchers assert.
-		
 		Object logger = Log.getLogger("Test.RuleTest.testUpdatePrimitiveItemInRule");
 		Log.log(logger, "info", "Start test Rules.UpdatePrimitiveItem");
 		
@@ -49,33 +47,21 @@ String rulefunction Test.RuleTest.testUpdatePrimitiveItemInRule {
 		Log.log(logger, "info", "Rule returned %d matching tuples", result@length);
 		for (int i = 0; i < result@length; i++) {
 			Object[] objs = result[i];
-			Log.log(logger, "info", "The %d-th rule match contains %d objects", i, objs@length);
-			if (null == objs) {
-				msg = String.format("The %d-th rule match contains no objects, expected 2 objects", i);
-			}
-			else if (objs@length != 2) {
-				msg = String.format("The %d-th rule match contains %d objects, expected 2 objects", i, objs@length);
-			}
-			else {
-				if (objs[1] instanceof Concepts.PrimitiveItem) {
-					Concepts.PrimitiveItem uItem = objs[1];
-					String fmt = "{%s, %s, %d, %d, %.1f, %tc}";
-					String itemStr = String.format(fmt, uItem.aString, uItem.aBoolean, uItem.anInt, uItem.aLong, uItem.aDouble, uItem.aDateTime);
-					String evtStr = String.format(fmt, evt.aString, evt.aBoolean, evt.anInt, evt.aLong, evt.aDouble, evt.aDateTime);
-					if (evtStr == itemStr) {
-						msg = "true";
-					}
-					else {
-						msg = String.format("The %d-th matched object %s is not as expected %s", i, itemStr, evtStr);
-					}
-				}
-				else {
-					msg = String.format("The 2nd object in the %d-th rule match is not a Concepts.PrimitiveItem", i);
-				}
-			}
+			assertThat("Rule returned matching tuple must not be null",
+				objs, notNullValue());
+			assertThat("Rule returned matching tuple must contain 2 objects",
+				objs@length, equalTo(2));
+				
+			//TODO: assert objs[1] instanceof Concepts.PrimitiveItem
+			
+			Concepts.PrimitiveItem uItem = objs[1];
+			String fmt = "{%s, %s, %d, %d, %.1f, %tc}";
+			String itemStr = String.format(fmt, uItem.aString, uItem.aBoolean, uItem.anInt, uItem.aLong, uItem.aDouble, uItem.aDateTime);
+			String evtStr = String.format(fmt, evt.aString, evt.aBoolean, evt.anInt, evt.aLong, evt.aDouble, evt.aDateTime);
+
+			assertThat(String.format("Concept %s must be updated to expected value %s", itemStr, evtStr),
+				itemStr, equalTo(evtStr));
 		}
-		Log.log(logger, "info", "End test Rules.UpdatePrimitiveItem: %s", msg);
-		
-		return msg;
+		Log.log(logger, "info", "Completed test Rules.UpdatePrimitiveItem");
 	}
 }
