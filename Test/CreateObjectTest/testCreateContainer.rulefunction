@@ -1,6 +1,6 @@
 /**
  * @description Test the function createContainer, verify all levels of contained and referenced object relationships.
- *              return "true" if sucessful, or an error message if failed.
+ * 
  * @author Yueming Xu
  */
 void rulefunction Test.CreateObjectTest.testCreateContainer {

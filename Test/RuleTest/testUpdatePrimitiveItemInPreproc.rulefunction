@@ -1,6 +1,6 @@
 /**
  * @description Trigger the UpdatePrimitiveItem rule, and verify that a concept is updated by an event.
- *              return "true" if sucessful, or an error message if failed.
+ * 
  *        Note: this function executes all rules by creating triggering concpt and events,
  *              so it is not absolutely an isolated test. However, it is usually possible to
  *              use special data of the trigger objects to reduce the chance of firing other rules.

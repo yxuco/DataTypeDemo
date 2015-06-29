@@ -19,7 +19,8 @@ void rulefunction Test.SimpleHamcrestTest.allHamcrestTests {
 			"testTrueNotMatcher", "testFalseNotMatcher",
 			"testTrueNotValue", "testFalseNotValue",
 			"testTrueNullValue", "testFalseNullValue",
-			"testTrueNotNullValue", "testFalseNotNullValue"};
+			"testTrueNotNullValue", "testFalseNotNullValue",
+			"testTrueRegexMatch", "testFalseRegexMatch"};
 		for (int i = 0; i < tests@length; i++) {
 			Engine.invokeRuleFunction("/Test/SimpleHamcrestTest/" + tests[i], null);
 			Log.log(logger, "info", "%s completed", tests[i]);

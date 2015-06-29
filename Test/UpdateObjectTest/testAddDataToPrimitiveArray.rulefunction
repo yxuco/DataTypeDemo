@@ -1,6 +1,6 @@
 /**
  * @description Test the function addDataToPrimitiveArray, verify updated properties.
- *              return "true" if sucessful, or an error message if failed.
+ * 
  *        Note: In preprocessor context, it is not allowed to update existing concepts from other rule session.
  *              However, in this test case, all objects are newly created by the function,
  *              So, this test should work in either preprocessor, or rule context.
