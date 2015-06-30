@@ -57,7 +57,12 @@ where `BE_HOME` is the root folder of the BE product installation, e.g., `/usr/l
 While the BE engine is running, you can launch the JUnit tests in the BusinessEvents Studio as described in the [beunit](https://github.com/yxuco/beunit) project.  Change to Java Perspective when you run the JUnit tests.  Congratulations if you see a Green bar in the JUnit test panel, indicating success of all test cases.  
 
 Please email or open issues if there is any problem with this project.  More details about the design and usage of the test framework will be posted on the [project wiki](https://github.com/yxuco/DataTypeDemo/wiki).
- 
+
+**Note:** On my Mac, BusinessEvents Studio sometimes hangs during startup due to Eclipse cached state.  If you experience the same, you may try to start it from command-line using the following flags:
+
+    cd $BE_HOME/studio/eclipse/studio.app/Contents/MacOS
+    ./studio -clean -clearPersistedState
+
 ## The author
 
 Yueming is a Sr. Architect working at [TIBCO](http://www.tibco.com/) Architecture Service Group.
