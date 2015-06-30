@@ -13,7 +13,7 @@ void rulefunction Test.SimpleHamcrestTest.testFalseCollectionLength {
 		try {
 			assertThat(reason, 
 				asList("bar", "cat"), 
-				lengthIs(startsWithString("ba"), 2));
+				hasSize(startsWithString("ba"), 2));
 		}
 		catch (Exception e) {
 			if (isValidAssertionError(e, reason)) {

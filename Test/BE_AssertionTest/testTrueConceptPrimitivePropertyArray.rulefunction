@@ -26,6 +26,6 @@ void rulefunction Test.BE_AssertionTest.testTrueConceptPrimitivePropertyArray {
 		// only one of the strings is equal to "first"
 		assertThat("True concept primitive property array", 
 			paItem2, 
-			withProperty("strings", lengthIs(equalTo("first"), 1)));
+			withProperty("strings", hasSize(equalTo("first"), 1)));
 	}
 }

@@ -58,6 +58,6 @@ void rulefunction Test.BE_AssertionTest.testTrueContainedConceptProperty {
 			con,
 			withProperty(
 				"containedArray",
-				withProperty("primitiveRefs", lengthIs(notNullValue(), 2))));
+				withProperty("primitiveRefs", hasSize(notNullValue(), 2))));
 	}
 }

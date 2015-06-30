@@ -11,6 +11,6 @@ void rulefunction Test.SimpleHamcrestTest.testTrueCollectionLength {
 	body {
 		assertThat("Simple true collection length", 
 			asList("bar", "cat"), 
-			lengthIs(startsWithString("ba"), 1));
+			hasSize(startsWithString("ba"), 1));
 	}
 }

@@ -36,7 +36,7 @@ void rulefunction Test.UpdateObjectTest.testAddDataToPrimitiveArray {
 
 		assertThat("String property length should be 2",
 			paItem,
-			withProperty("strings", lengthIs(notNullValue(), 2)));
+			withProperty("strings", hasSize(notNullValue(), 2)));
 		assertThat("The 2nd item of long property should be 2L",
 			Instance.PropertyArray.toArrayLong(paItem.longs)[1],
 			equalTo(2L));
