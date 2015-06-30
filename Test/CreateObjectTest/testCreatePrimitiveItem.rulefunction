@@ -32,8 +32,8 @@ void rulefunction Test.CreateObjectTest.testCreatePrimitiveItem {
 			aDouble /*aDouble double */,
 			aDateTime /*aDateTime DateTime */);
 
-		assertThat("PrimitiveItem should not be null", pItem, notNullValue());
-		assertTrue("Returned PrimitiveItem does not match the expected input data",
+		assertThat("PrimitiveItem must not be null", pItem, notNullValue());
+		assertTrue("PrimitiveItem must match the expected input data",
 			aString == pItem.aString &&
 			aBoolean == pItem.aBoolean &&
 			anInt == pItem.anInt &&

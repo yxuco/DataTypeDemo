@@ -39,21 +39,21 @@ void rulefunction Test.CreateObjectTest.testCreateContainer {
 			sItem /*aSingleItems Concepts.SingleItems */,
 			lItem /*aListItems Concepts.ListItems */);
 		
-		assertThat("Container is not correctly set on array of contained concepts",
-			Instance.PropertyArray.toArrayConcept(con.arrayContained)[0],
-			sameInstance(sItem));
-		assertThat("Container is not correctly set on contained concept",
-			con.containedArray,
-			sameInstance(lItem));
-		assertThat("SingleItem is not correctly set on concept reference",
-			sItem.primitiveArrayRef,
-			sameInstance(paItem));
-		assertThat("ListItem is not correctly set on array of concept reference",
-			Instance.PropertyArray.toArrayConcept(lItem.primitiveRefs)[0],
-			sameInstance(pItem));
-		assertThat("PrimitiveArrayItem is not correctly set on array of string",
-			Instance.PropertyArray.toArrayString(paItem.strings)[0],
-			equalTo("first"));
+		assertThat("Correct array of contained concepts is in container",
+			con,
+			withProperty("arrayContained", hasItem(sameInstance(sItem))));
+		assertThat("Correct contained concept is in container",
+			con,
+			withProperty("containedArray", sameInstance(lItem)));
+		assertThat("Correct concept reference is in SingleItems",
+			sItem,
+			withProperty("primitiveArrayRef", sameInstance(paItem)));
+		assertThat("Correct array of concept references is in ListItems",
+			lItem,
+			withProperty("primitiveRefs", hasItem(sameInstance(pItem))));
+		assertThat("Correct array of strings is in PrimitiveArrayItem",
+			paItem,
+			withProperty("strings", hasItem(equalTo("first"))));
 
 		Log.log(logger, "info", "Completed test RuleFunctions.CreateObject.createContainer");
 	}

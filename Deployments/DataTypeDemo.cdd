@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <cluster xmlns="http://tibco.com/businessevents/configuration/5.2">
     <revision>
-        <version>60</version>
+        <version>63</version>
         <author>yxu</author>
-        <date>2015/06/28 21:09:35</date>
+        <date>2015/06/29 19:42:24</date>
         <comment/>
     </revision>
     <name>DataTypeDemo</name>
@@ -139,9 +139,7 @@
                     <uri>/testservice/test/query</uri>
                 </destination>
             </destinations>
-            <startup>
-                <uri>/Test/BE_AssertionTest/allBE_AssertionTests</uri>
-            </startup>
+            <startup/>
             <shutdown/>
             <local-cache>
                 <eviction>
