@@ -43,10 +43,12 @@ Launch the TIBCO BusinessEvents Studio, import and configure the BE project as f
  - In **Building Enterprise Archive...** dialog, select a **File Location** for the EAR file, e.g., `/tmp/DataTypeDemo.ear`, then click the **OK** button.
  - If you see a dialog "`The Enterprise Archive file was built correctly`", you are ready to start the BE engine.
  - To start the BE engine in BusinessEvents Studio, in the "run configuration", add 3 jars to the classpath: `junit-4.12.jar`, `hamcrest-core-1.3.jar`, and `beassert-1.0.jar`.  All 3 jars can be found in the Maven local repository, which is by default, ~/.m2/repository.
- - To start the BE engine from command-line, use the following command from where you generated the `DataTypeDemo.ear` file.  **Note:** edit the be-engine.tra to add the 3 jar files to the classpath.
+ - To start the BE engine from command-line, use the following command from where you generated the `DataTypeDemo.ear` file.  **Note:** edit the `be-engine.tra` to add the 3 jar files to the classpath.
 
-    ${BE_HOME}/bin/be-engine --propFile ${BE_HOME}/bin/be-engine.tra -u default \
-    -c ${WORKSPACE}/DataTypeDemo/Deployments/DataTypeDemo.cdd DataTypeDemo.ear
+```
+${BE_HOME}/bin/be-engine --propFile ${BE_HOME}/bin/be-engine.tra -u default \
+-c ${WORKSPACE}/DataTypeDemo/Deployments/DataTypeDemo.cdd DataTypeDemo.ear
+```
 
 where `BE_HOME` is the root folder of the BE product installation, e.g., `/usr/local/tibco/be/5.2`, and `WORKSPACE` is the workspace folder where you cloned the `DataTypeDemo` project.
 
