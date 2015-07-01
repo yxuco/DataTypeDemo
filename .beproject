@@ -2,6 +2,6 @@
 <configuration:StudioProjectConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:configuration="http:///com/tibco/cep/studio/common/configuration/model/project_configuration.ecore" name="DataTypeDemo" version="5.2.0" build="467" xpathVersion="2.0">
   <thirdpartyLibEntries entryType="Third Party" path="/Users/yxu/.m2/repository/com/tibco/psg/beassert/1.0/beassert-1.0.jar" timestamp="1435380480000"/>
   <javaSourceFolderEntries entryType="JAVA_SOURCE_FOLDER" path="/DataTypeDemo/JavaSrc" readOnly="true"/>
-  <enterpriseArchiveConfiguration name="DataTypeDemo" author="yxu" version="114" path="/Users/yxu/Developer/tibco/DataTypeDemo.ear" overwrite="true"/>
+  <enterpriseArchiveConfiguration name="DataTypeDemo" author="yxu" version="118" path="/Users/yxu/Developer/tibco/DataTypeDemo.ear" overwrite="true"/>
   <bpmnProcessSettings/>
 </configuration:StudioProjectConfiguration>
