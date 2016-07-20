@@ -28,7 +28,8 @@ rule testservice.TestScheduler.StartScheduledTest {
 				String fi = String.trim(fs[i]);
 				if (String.length(fi) > 0) {
                     Log.log(logger, "info", "Invoke test %s in rules context", fi);
-                    Engine.invokeRuleFunction(fi, null);
+                    testservice.TestScheduler.printTestResult(fi,
+                    	testservice.RuleFunctions.invokeTest(fi));
 				}
 			}
 		}

@@ -12,12 +12,10 @@ void rulefunction Test.RuleTest.RuleTestWorker.startRuleTest {
 	}
 	body {
 		Object logger = Log.getLogger("Test.RuleTest.DelayedRuleTestDriver.startRuleTest");
-		Log.log(logger, "info", "start background work manager for rule tests");
-		
-		String worker = "RuleTestWorker";
-		Cluster.createWorkManager(worker, 1);
-		
-		// pass dependent object Id to the worker, so it can load it from cache
-		Cluster.executeRuleFunction(worker, "/Test/RuleTest/RuleTestWorker/ruleTestAction", false);
+		testservice.RuleFunctions.dispatchTestWorker(
+			"RuleTestWorker" /*worker String */,
+			1 /*threads int */,
+			"/Test/RuleTest/RuleTestWorker/ruleTestAction" /*testFunction String */,
+			false /*inPreproc boolean */);
 	}
 }
