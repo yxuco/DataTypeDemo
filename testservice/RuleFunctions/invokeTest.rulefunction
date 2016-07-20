@@ -16,7 +16,7 @@ String rulefunction testservice.RuleFunctions.invokeTest {
 		catch (Exception e) {
 			String errMsg;
 			if ("java.lang.AssertionError" == e@errorType) {
-				errMsg = String.substringAfter(errMsg, "AssertionError: ");
+				errMsg = String.substringAfter(e@message, "AssertionError: ");
 			} else {
 				errMsg = String.format("Exception: %s; StackTrace: %s", e@message, e@stackTrace);
 			}
