@@ -64,6 +64,7 @@ Please email or open issues if there is any problem with this project.  To get s
     ./studio -clean -clearPersistedState
 
 If this does not work, delete the following 2 files from the workspace and then restart:
+
     $workspace/.metadata/.lock
     $workspace/.metadata/.plugins/org.eclipse.core.resources/*.snap
 
