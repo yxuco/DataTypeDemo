@@ -63,6 +63,10 @@ Please email or open issues if there is any problem with this project.  To get s
     cd $BE_HOME/studio/eclipse/studio.app/Contents/MacOS
     ./studio -clean -clearPersistedState
 
+If this does not work, delete the following 2 files from the workspace and then restart:
+    $workspace/.metadata/.lock
+    $workspace/.metadata/.plugins/org.eclipse.core.resources/*.snap
+
 ## The author
 
 Yueming is a Sr. Architect working at [TIBCO](http://www.tibco.com/) Architecture Service Group.
